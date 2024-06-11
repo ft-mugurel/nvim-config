@@ -164,10 +164,20 @@ _G.packer_plugins = {
     path = "/home/mtu/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-highlight-colors"] = {
+    loaded = true,
+    path = "/home/mtu/.local/share/nvim/site/pack/packer/start/nvim-highlight-colors",
+    url = "https://github.com/brenoprata10/nvim-highlight-colors"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/mtu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-tmux-navigation"] = {
+    loaded = true,
+    path = "/home/mtu/.local/share/nvim/site/pack/packer/start/nvim-tmux-navigation",
+    url = "https://github.com/alexghergh/nvim-tmux-navigation"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -189,13 +199,21 @@ _G.packer_plugins = {
     path = "/home/mtu/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["render-markdown"] = {
+    config = { "\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\20render-markdown\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/mtu/.local/share/nvim/site/pack/packer/opt/render-markdown",
+    url = "https://github.com/MeanderingProgrammer/markdown.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/mtu/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n«\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\a\tsize\3\v\20start_in_insert\2\17open_mapping\n<c-`>\19shading_factor\0061\17persist_size\2\14direction\15horizontal\20shade_terminals\2\nsetup\15toggleterm\frequire\0" },
+    config = { "\27LJ\2\n«\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\a\14direction\15horizontal\20start_in_insert\2\19shading_factor\0061\20shade_terminals\2\tsize\3\v\17persist_size\2\17open_mapping\n<c-`>\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/home/mtu/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -220,8 +238,17 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n«\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\a\tsize\3\v\20start_in_insert\2\17open_mapping\n<c-`>\19shading_factor\0061\17persist_size\2\14direction\15horizontal\20shade_terminals\2\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+try_loadstring("\27LJ\2\n«\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\a\14direction\15horizontal\20start_in_insert\2\19shading_factor\0061\20shade_terminals\2\tsize\3\v\17persist_size\2\17open_mapping\n<c-`>\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd render-markdown ]]
+
+-- Config for: render-markdown
+try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\20render-markdown\frequire\0", "config", "render-markdown")
+
+time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -16,6 +16,9 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('ThePrimeagen/vim-be-good')
   use('github/copilot.vim')
+  use('alexghergh/nvim-tmux-navigation')
+  use('brenoprata10/nvim-highlight-colors')
+  vim.opt.termguicolors = true
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  requires = {
@@ -65,4 +68,12 @@ return require('packer').startup(function(use)
 	  'nvim-lualine/lualine.nvim',
 	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
+  use({
+	  'MeanderingProgrammer/markdown.nvim',
+	  as = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
+	  after = { 'nvim-treesitter' },
+	  config = function()
+		  require('render-markdown').setup({})
+	  end,
+  })
   end)
