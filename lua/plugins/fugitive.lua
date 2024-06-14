@@ -1,6 +1,12 @@
 return {
 	"tpope/vim-fugitive",
 	config = function()
-		vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
+		local wk = require("which-key")
+		wk.register({
+			g = {
+				name = "Git",
+				s = { vim.cmd.Git, "Fugitive" },
+			},
+			}, { prefix = "<leader>" })
 	end
 }

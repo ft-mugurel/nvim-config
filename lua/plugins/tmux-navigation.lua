@@ -5,11 +5,14 @@ return {
 		nvim_tmux_nav.setup {
 			disable_when_zoomed = true -- defaults to false
 		}
-		vim.keymap.set('n', "<C-h>", ":NvimTmuxNavigateLeft <CR>")
-		vim.keymap.set('n', "<C-j>", ":NvimTmuxNavigateDown <CR>")
-		vim.keymap.set('n', "<C-k>", ":NvimTmuxNavigateUp <CR>")
-		vim.keymap.set('n', "<C-l>", ":NvimTmuxNavigateRight <CR>")
-		vim.keymap.set('n', "<C-\\>", ":NvimTmuxNavigateLastActive <CR>")
-		vim.keymap.set('n', "<C-Space>", ":NvimTmuxNavigateNext <CR>")
+		local wk = require("which-key")
+		wk.register({
+			["<C-h>"] = {"<cmd>NvimTmuxNavigateLeft <CR>" , "nav left"},
+			["<C-j>"] = {"<cmd>NvimTmuxNavigateDown <CR>" , "nav down"},
+			["<C-k>"] = {"<cmd>NvimTmuxNavigateUp <CR>" , "nav up"},
+			["<C-l>"] = {"<cmd>NvimTmuxNavigateRight <CR>" , "nav right"},
+			["<C-\\>"] = {"<cmd>NvimTmuxNavigateLastActive <CR>" , "nav last"},
+			["<C-Space>"] = {"<cmd>NvimTmuxNavigateNext <CR>" , "nav next"},
+		})
 	end
 }

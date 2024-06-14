@@ -8,6 +8,10 @@ return {
 		"3rd/image.nvim", 
 	},
 	config = function ()
-		vim.keymap.set("n", "<leader>n", ':Neotree filesystem toggle <CR>')
+		local wk = require("which-key")
+		wk.register({
+			n = { "<cmd>Neotree filesystem toggle <CR>", "Neotree" },
+			mode = { 'n' },
+			}, { prefix = "<leader>" })
 	end
 }
