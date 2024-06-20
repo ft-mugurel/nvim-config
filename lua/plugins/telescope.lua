@@ -7,8 +7,11 @@ return {
 		wk.register({
 			b = {
 				name = "Telescope",
-				b = { builtin.find_files, "Telescope" },
+				f = { builtin.find_files, "Telescope File" },
 				g = { builtin.git_files, "Telescope Git" },
+				b = { builtin.buffers, "Telescope Buffers" },
+				o = { builtin.oldfiles, "Telescope Old Files" },
+				s = { builtin.lsp_document_symbols, "Telescope Old Files" },
 				mode = { 'n' },
 			},
 			}, { prefix = "<leader>" })
