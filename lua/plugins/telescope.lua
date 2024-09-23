@@ -4,6 +4,7 @@ return {
 	config = function()
 		local builtin = require('telescope.builtin')
 		local wk = require("which-key")
+		vim.keymap.set('n', '<C-i>', builtin.find_files, {})
 		wk.register({
 			b = {
 				name = "Telescope",
